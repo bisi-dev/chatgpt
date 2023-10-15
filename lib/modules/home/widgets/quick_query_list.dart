@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/query.dart';
+import 'chat_modal.dart';
 
 class QuickQueryList extends StatelessWidget {
   const QuickQueryList({super.key});
@@ -17,7 +18,12 @@ class QuickQueryList extends StatelessWidget {
           itemCount: Query.list.length,
           padding: const EdgeInsets.only(right: 16.0),
           itemBuilder: (context, index) => InkWell(
-            onTap: () {},
+            onTap: () {
+              ChatData.list.clear();
+              ChatData.list
+                  .add('${Query.list[index].title} ${Query.list[index].body}');
+              showChat(context);
+            },
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.grey.withOpacity(0.1),

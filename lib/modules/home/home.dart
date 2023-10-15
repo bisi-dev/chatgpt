@@ -50,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         FocusManager.instance.primaryFocus?.unfocus();
       },
       child: CupertinoPageScaffold(
+        resizeToAvoidBottomInset: false,
         child: Scaffold(
           appBar: blankAppBar(),
           drawer: const Drawer(width: 0, child: SizedBox()),
@@ -97,7 +98,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       const QuickQueryList(),
                       const SizedBox(height: 16),
-                      const AppTextField(),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        child: AppTextField(),
+                      ),
                     ],
                   ),
                 ),

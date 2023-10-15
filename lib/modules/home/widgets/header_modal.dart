@@ -49,7 +49,7 @@ void showHistory(BuildContext context) {
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: Container(
             color: AppColors.kSheet,
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.only(left: 16, top: 16, right: 16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -98,7 +98,29 @@ void showHistory(BuildContext context) {
                         : const SizedBox()
                   ],
                 ),
-                SizedBox(height: focusN.hasFocus ? 400 : 300),
+                SizedBox(
+                  height: focusN.hasFocus ? 400 : 300,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 16.0, bottom: 8.0),
+                        child: Text(
+                          'TODAY',
+                          style: TextStyle(color: AppColors.kGrey),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: AppColors.kWhite,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -116,11 +138,90 @@ void showSettings(BuildContext context) {
         body: Container(
           height: MediaQuery.of(context).size.height * 0.925,
           color: AppColors.kSheet,
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.only(top: 16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              header(context, 'Settings'),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: header(context, 'Settings'),
+              ),
+              const SizedBox(height: 16.0),
+              Flexible(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 8.0),
+                        child: Text(
+                          'ACCOUNT',
+                          style: TextStyle(color: AppColors.kGrey),
+                        ),
+                      ),
+                      Container(
+                        height: 200,
+                        decoration: BoxDecoration(
+                          color: AppColors.kWhite,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 8.0),
+                        child: Text(
+                          'APP',
+                          style: TextStyle(color: AppColors.kGrey),
+                        ),
+                      ),
+                      Container(
+                        height: 80,
+                        decoration: BoxDecoration(
+                          color: AppColors.kWhite,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 8.0),
+                        child: Text(
+                          'SPEECH',
+                          style: TextStyle(color: AppColors.kGrey),
+                        ),
+                      ),
+                      Container(
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: AppColors.kWhite,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 8.0),
+                        child: Text(
+                          'ABOUT',
+                          style: TextStyle(color: AppColors.kGrey),
+                        ),
+                      ),
+                      Container(
+                        height: 200,
+                        decoration: BoxDecoration(
+                          color: AppColors.kWhite,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      const SizedBox(height: 40),
+                      Container(
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: AppColors.kWhite,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      const SizedBox(height: 40),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
